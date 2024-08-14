@@ -14,22 +14,6 @@ import java.util.List;
 
 public class WordList {
     
-    public static void main(String[] args) {
-        // Create an instance of the WordList class
-        WordList wordList = new WordList();
-
-        // Call the method to initialize the secret word
-        wordList.initialiseSecretWord();
-
-        // Print out the selected secret word
-        String secretWord = wordList.getSecretWord();
-        if (secretWord != null) {
-            System.out.println("The secret word is: " + secretWord);
-        } else {
-            System.out.println("No secret word could be selected. Please check the word list file.");
-        }
-    }
-    
     private String secretWord; 
     private List<String> validWords = new ArrayList<>(); 
 
