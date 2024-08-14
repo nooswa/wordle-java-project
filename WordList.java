@@ -1,7 +1,6 @@
 
 package wordle;
 
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,12 +10,36 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.List;
 
 public class WordList {
-    private String secretWord;  
+    
+    public static void main(String[] args) {
+        // Create an instance of the WordList class
+        WordList wordList = new WordList();
+
+        // Call the method to initialize the secret word
+        wordList.initialiseSecretWord();
+
+        // Print out the selected secret word
+        String secretWord = wordList.getSecretWord();
+        if (secretWord != null) {
+            System.out.println("The secret word is: " + secretWord);
+        } else {
+            System.out.println("No secret word could be selected. Please check the word list file.");
+        }
+    }
+    
+    private String secretWord; 
+    private List<String> validWords = new ArrayList<>(); 
+
 
     public String getSecretWord() {
         return secretWord;
+    }
+    
+    public List<String> getValidWords() {
+        return validWords; 
     }
 
     public void selectRandomWord() {
@@ -24,7 +47,7 @@ public class WordList {
         ArrayList<String> words = new ArrayList<>();
 
         try {
-            br = new BufferedReader(new FileReader("./resources/Word List.txt"));
+            br = new BufferedReader(new FileReader("C:\\Users\\noooo\\Downloads\\valid_guess_list.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] arrOfStr = line.split(" ");
@@ -57,8 +80,6 @@ public class WordList {
      selectRandomWord();
     }
 }
-
-    
   
 
 
