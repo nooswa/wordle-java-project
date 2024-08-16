@@ -1,18 +1,17 @@
 
-package com.mycompany.wordleproject;
+package wordle;
 
 import java.util.Scanner;
-import java.util.List;
 
 public class InputHandler {
-    private Scanner scanner;
-    private WordList wordList;
+    private final Scanner scanner;
+    private final ValidGuess validGuess;
     private static final int WORD_LENGTH = 5;
 
     // Constructor 
-    public InputHandler(WordList wordList) {
+    public InputHandler(ValidGuess validGuess) {
         this.scanner = new Scanner(System.in);
-        this.wordList = wordList;
+        this.validGuess = validGuess; 
     }
 
     // Method to get the user's input
@@ -21,7 +20,7 @@ public class InputHandler {
         do {
             System.out.println("Enter Your Guess: ");
             input = scanner.nextLine().trim();
-            input = input.toUpperCase();//Words in uppercase
+            input = input.toUpperCase();
         } while (!isValidInput(input));
         return input;
     }
@@ -29,10 +28,15 @@ public class InputHandler {
     // Check if the word is valid
     private boolean isValidInput(String input) {
         if (input.length() != WORD_LENGTH) {
-            System.out.println("Your guess must be a 5 letter word. Please try again.");
+            System.out.println("Your guess must be a 5-letter word. Please try again.");
             return false;
         }
-        if (!wordList.getValidWords().contains(input)) { //error here
+        if (!input.matches("[A-Z]+")) {
+            System.out.println("Invalid input, the word must only contain letters.");
+            return false;
+        }
+
+        if (validGuess.getValidWords().contains(input)) { 
             System.out.println("Input is not a valid word.");
             return false;
         }
