@@ -37,7 +37,7 @@ public class InputHandler {
         }
 
         if (validGuess.getValidWords().contains(input)) { 
-            System.out.println("Input is not a valid word.");
+            System.out.println(input + "is not a valid word.");
             return false;
         }
         return true;
