@@ -1,0 +1,47 @@
+package wordle;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class ValidGuess {
+
+    private ArrayList<String> validWords;  
+
+    public ValidGuess() {
+        validWords = new ArrayList<>();  
+        loadWords();  
+    }
+
+    private void loadWords() {
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("./resources/Valid_Guess_List.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                validWords.add(line.trim());  
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ValidGuess.class.getName()).log(Level.SEVERE, "File not found.", ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ValidGuess.class.getName()).log(Level.SEVERE, "Failed to read the file.", ex);
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ValidGuess.class.getName()).log(Level.SEVERE, "Failed to close the BufferedReader.", ex);
+                }
+            }
+        }
+    }
+
+    public List<String> getValidWords() {
+        return validWords;  
+    }
+}
