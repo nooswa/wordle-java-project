@@ -1,5 +1,5 @@
-
 package wordle;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,20 +10,14 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.List;
 
 public class WordList {
-    
-    private String secretWord; 
-    private List<String> validWords = new ArrayList<>(); 
 
+    static int WORD_LENGTH = 5;
+    private String secretWord;  
 
     public String getSecretWord() {
         return secretWord;
-    }
-    
-    public List<String> getValidWords() {
-        return validWords; 
     }
 
     public void selectRandomWord() {
@@ -31,7 +25,7 @@ public class WordList {
         ArrayList<String> words = new ArrayList<>();
 
         try {
-            br = new BufferedReader(new FileReader("C:\\Users\\noooo\\Downloads\\valid_guess_list.txt"));
+            br = new BufferedReader(new FileReader("./resources/Word_List.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] arrOfStr = line.split(" ");
@@ -64,6 +58,16 @@ public class WordList {
      selectRandomWord();
     }
 }
+
+    
   
+
+
+
+ 
+        
+    
+
+
 
 
