@@ -1,0 +1,16 @@
+
+package wordle;
+
+import java.util.Scanner;
+
+public class UserInput {
+    
+    
+    public String getUserInput() {
+        System.out.println("Enter a 5 Letter Word");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+    
+
+    
