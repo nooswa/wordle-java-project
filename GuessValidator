@@ -1,0 +1,20 @@
+package wordle;
+
+public class GuessValidator {
+
+    private final ValidGuess validGuess;
+    private final WordList wordList;
+
+    public GuessValidator(ValidGuess validGuess, WordList wordList) {
+        this.validGuess = validGuess;
+        this.wordList = wordList;
+    }
+
+    public boolean isValidWord(String word) {
+        return validGuess.getValidWords().contains(word) && word.length() == WordList.WORD_LENGTH;
+    }
+
+    public boolean isCorrectGuess(String word) {
+        return word.equalsIgnoreCase(wordList.getSecretWord());
+    }
+}
