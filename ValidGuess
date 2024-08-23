@@ -24,7 +24,7 @@ public class ValidGuess {
             br = new BufferedReader(new FileReader("./resources/Valid_Guess_List.txt"));
             String line;
             while ((line = br.readLine()) != null) {
-                validWords.add(line.trim());  
+                validWords.add(line.trim().toUpperCase()); 
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ValidGuess.class.getName()).log(Level.SEVERE, "File not found.", ex);
