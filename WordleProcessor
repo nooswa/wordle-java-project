@@ -1,14 +1,15 @@
 package wordle;
 
-public class GameProcessor {
+
+public class WordleProcessor {
     private final String secretWord;
     private final InputHandler inputHandler;
-    private final FeedbackDisplay feedbackDisplay;
+    private final HintsDisplay feedbackDisplay;
 
-    public GameProcessor(String secretWord, InputHandler inputHandler) {
+    public WordleProcessor(String secretWord, InputHandler inputHandler) {
         this.secretWord = secretWord;
         this.inputHandler = inputHandler;
-        this.feedbackDisplay = new FeedbackDisplay();
+        this.feedbackDisplay = new HintsDisplay();
     }
 
     public void startGame(int maxAttempts) {
@@ -42,3 +43,4 @@ public class GameProcessor {
         }
     }
 }
+
