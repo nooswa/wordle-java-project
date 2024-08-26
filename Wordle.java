@@ -1,7 +1,6 @@
 package wordle;
 
 public class Wordle {
-
     public static void main(String[] args) {
         // Initialize components
         WordList wordList = new WordList();
@@ -18,7 +17,7 @@ public class Wordle {
         String secretWord = wordList.getSecretWord();
 
         // Create and start the game processor
-        GameProcessor gameProcessor = new GameProcessor(secretWord, inputHandler);
+        WordleProcessor gameProcessor = new WordleProcessor(secretWord, inputHandler);
         gameProcessor.startGame(6);  // 6 attempts
     }
 }
