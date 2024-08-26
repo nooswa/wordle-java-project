@@ -3,10 +3,10 @@ package wordle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedbackDisplay {
+public class HintsDisplay {
     private final List<String> feedbackHistory;
 
-    public FeedbackDisplay() {
+    public HintsDisplay() {
         this.feedbackHistory = new ArrayList<>();
     }
 
@@ -44,6 +44,22 @@ public class FeedbackDisplay {
             }
         }
     }
+
+    feedbackHistory.add(feedback.toString());  // Store feedback
+    return feedback.toString();
+}
+
+
+
+
+    public void displayFeedbackHistory() {
+        System.out.println();
+        for (String feedback : feedbackHistory) {
+            System.out.println(feedback);
+        }
+        System.out.println();
+    }
+}
 
     feedbackHistory.add(feedback.toString());  // Store feedback
     return feedback.toString();
