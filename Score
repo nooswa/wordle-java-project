@@ -13,7 +13,7 @@ public class Score {
 
     private final static String HISTORY_PATH = "History.txt";
 
-    public void recordGame(WordleGame game) throws Exception {
+    public void recordGame(GameLogic game) throws Exception {
         // Read existing data from file
         List<String> lines = Files.readAllLines(Path.of(HISTORY_PATH));
         int gamesPlayed = 0;
