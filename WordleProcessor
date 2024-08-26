@@ -1,12 +1,18 @@
-package wordle;
-
-
-public class WordleProcessor {
+public class GameLogic{
     private final String secretWord;
     private final InputHandler inputHandler;
     private final HintsDisplay feedbackDisplay;
+    private boolean isGameWon = false;  // Track if the game was won
+    
+    public String getSecretWord() {//To access secret word from other classes
+        return secretWord;
+    }
+    
+    public boolean didWin() {
+        return isGameWon;  // Return the win state
+    }
 
-    public WordleProcessor(String secretWord, InputHandler inputHandler) {
+    public GameLogic(String secretWord, InputHandler inputHandler) {
         this.secretWord = secretWord;
         this.inputHandler = inputHandler;
         this.feedbackDisplay = new HintsDisplay();
@@ -43,4 +49,4 @@ public class WordleProcessor {
         }
     }
 }
-
+      
